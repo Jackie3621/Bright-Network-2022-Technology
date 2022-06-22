@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 def createMaze(barriers):
     maze = [[0 for i in range(10)] for i in range(10)]
     maze[0][0] = 'S'
@@ -17,10 +11,6 @@ coords = [(9,7),(8,7),(6,7),(6,8)] # barriers from phase 1
 grid1 = createMaze(coords)
 #print(grid1)
 
-
-# In[2]:
-
-
 # visual plot of the grid
 import numpy as np
 maze = np.zeros([10,10])
@@ -29,10 +19,6 @@ for x in coords:
     maze[x[1]][x[0]] = 1 # barriers indicated by 1
     
 print(maze)
-
-
-# In[3]:
-
 
 # shortest path function
 import collections
@@ -64,17 +50,9 @@ def solveMazeWithPath(maze):
             queue.appendleft((nr, nc, coord[2] + 1, coord[3] + [nr * C + nc]))
     return 'unable to reach delivery point'
 
-
-# In[4]:
-
-
 # phase 1
 print('Path =',solveMazeWithPath(grid1)[1])
 print('Number of steps =', solveMazeWithPath(grid1)[0])
-
-
-# In[5]:
-
 
 # phase 2
 # creating the obstacles
@@ -93,10 +71,6 @@ for k in range (20):
 #obstacles including the ones from phase 1
 print(coords)
 
-
-# In[6]:
-
-
 grid2 = createMaze(coords)
 
 maze = np.zeros([10,10])
@@ -109,10 +83,6 @@ print(maze)
 # path and no. of steps
 print('Path =',solveMazeWithPath(grid2)[1])
 print('Number of steps =', solveMazeWithPath(grid2)[0])
-
-
-# In[7]:
-
 
 # test edge case
 maze = np.zeros([10,10])
